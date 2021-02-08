@@ -9,7 +9,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "uglifyjs nacl-util.js -c -m -o nacl-util.min.js",
+    "build": "uglifyjs nacl-util.js -c -m -o dist/nacl-util.min.js",
     "test": "tape test/*.js; yarn run build-browser-test",
     "build-browser-test": "browserify test/test.js > test/browser/bundle.js",
     "lint": "eslint --fix nacl-util.js"
