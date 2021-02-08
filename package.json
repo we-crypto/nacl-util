@@ -1,0 +1,25 @@
+{
+  "name": "@wecrpto/nacl-util",
+  "version": "0.1.0",
+  "description": "encoding utilitlies",
+  "main": "nacl-util.js",
+  "types": "nacl-util.d.ts",
+  "repository": "https://github.com/we-crypto/nacl-util.git",
+  "author": "lanbery<lanbery@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "uglifyjs nacl-util.js -c -m -o nacl-util.min.js",
+    "test": "tape test/*.js; yarn run build-browser-test",
+    "build-browser-test": "browserify test/test.js > test/browser/bundle.js",
+    "lint": "eslint --fix nacl-util.js"
+  },
+  "devDependencies": {
+    "eslint": "6.8.0",
+    "tape": "4.13.3",
+    "uglify-js": "3.12.7"
+  },
+  "browser": {
+    "buffer": false
+  }
+}
