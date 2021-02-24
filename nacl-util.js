@@ -1,5 +1,3 @@
-/* eslint-disable block-scoped-var */
-/* eslint-disable no-redeclare */
 // Written in 2014-2016 by Dmitry Chestnykh and Devi Mandiri.
 // Public domain.
 (function(root, f) {
@@ -10,7 +8,7 @@
     root.nacl = {};
     root.nacl.util = f();
   }
-}(this, function(Buffer) {
+}(this, function() {
   'use strict';
 
   var util = {};
@@ -37,7 +35,7 @@
   if (typeof atob === 'undefined') {
     // Node.js
 
-    if (Buffer && typeof Buffer.from !== 'undefined') {
+    if (typeof Buffer.from !== 'undefined') {
        // Node v6 and later
       util.encodeBase64 = function(arr) { // v6 and later
           return Buffer.from(arr).toString('base64');
@@ -49,7 +47,6 @@
       };
 
     } else {
-      var Buffer = require('buffer');
       // Node earlier than v6
       util.encodeBase64 = function(arr) { // v6 and later
         return (new Buffer(arr)).toString('base64');
